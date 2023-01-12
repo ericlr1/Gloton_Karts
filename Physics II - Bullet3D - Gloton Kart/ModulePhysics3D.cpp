@@ -66,6 +66,17 @@ bool ModulePhysics3D::Start()
 		world->addRigidBody(body);
 	}
 
+	// Big cube as ramp
+	{
+		Cube c(5, 1, 5);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c);
+	}
+
+
 	return true;
 }
 

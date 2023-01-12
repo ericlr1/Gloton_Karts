@@ -137,6 +137,15 @@ update_status ModulePlayer::Update(float dt)
 		brake = BRAKE_POWER;
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)	//Reset posición
+	{
+		mat4x4 transform;
+		transform.rotate(0, vec3(0, 0, 1));
+		vehicle->SetTransform(&transform);
+		brake = BRAKE_POWER * 3;
+	}
+
+
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);

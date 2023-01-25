@@ -23,6 +23,8 @@ public:
 
 	PhysVehicle3D* vehicle;
 	float turn;
-	float acceleration;
+	float acceleration=0;
 	float brake;
+	bool viento_contrario;
+	bool viento_afavor;
 };

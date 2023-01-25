@@ -124,16 +124,34 @@ update_status ModulePlayer::Update(float dt)
 	{
 		brake = BRAKE_POWER - 995;
 	}
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN && App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
+	//Viento a favor de cualquier dirección
+	if (App->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 	{
 		viento_afavor = true;
+		viento_contrario = false;
 	}
-
 	if (viento_afavor == true)
 	{
-		acceleration = 500;
+		acceleration = 0;
+		acceleration += 450;
 	}
-
+	if (App->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN)
+	{
+		viento_contrario = true;
+		viento_afavor = false;
+	}
+	if (viento_contrario == true)
+	{
+		acceleration = 0;
+		acceleration -= 450;
+	}
+	//Neutralizar el viento de cualquier lado
+	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
+	{
+		viento_contrario = false;
+		viento_afavor = false;
+	}
+	//Viento a favor de cualquier dirección
 	if(App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
 		if(turn < TURN_DEGREES)

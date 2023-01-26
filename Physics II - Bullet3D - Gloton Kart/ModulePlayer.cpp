@@ -145,7 +145,7 @@ update_status ModulePlayer::Update(float dt)
 		acceleration = 0;
 		acceleration -= 450;
 	}
-	//Neutralizar el viento de cualquier lado
+	//Neutralizar el viento de cualquier lado.
 	if (App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)
 	{
 		viento_contrario = false;
@@ -177,7 +177,7 @@ update_status ModulePlayer::Update(float dt)
 		brake = BRAKE_POWER * 3;
 	}
 
-
+	//Aplicar cosas al coche
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);

@@ -27,4 +27,10 @@ public:
 	float brake;
 	bool viento_contrario;
 	bool viento_afavor;
+
+	bool gravedad = true;
+	int gravedad_v = 0;
+	int masa = 1;
+	bool viento = true;
+	bool f_suelo = true;
 };

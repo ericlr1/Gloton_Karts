@@ -120,7 +120,7 @@ update_status ModulePlayer::Update(float dt)
 		acceleration = MAX_ACCELERATION;
 	}
 	//Fium de fuerza de drag para el suelo del coche
-	if (App->input->GetKey(SDL_SCANCODE_W) == false)
+	if (App->input->GetKey(SDL_SCANCODE_W) == false && f_suelo)
 	{
 		brake = BRAKE_POWER - 995;
 	}
@@ -130,7 +130,7 @@ update_status ModulePlayer::Update(float dt)
 		viento_afavor = true;
 		viento_contrario = false;
 	}
-	if (viento_afavor == true)
+	if (viento_afavor == true && viento)
 	{
 		acceleration = 0;
 		acceleration += 450;
@@ -140,7 +140,7 @@ update_status ModulePlayer::Update(float dt)
 		viento_contrario = true;
 		viento_afavor = false;
 	}
-	if (viento_contrario == true)
+	if (viento_contrario == true && viento)
 	{
 		acceleration = 0;
 		acceleration -= 450;
@@ -167,6 +167,70 @@ update_status ModulePlayer::Update(float dt)
 	if(App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
 	{
 		brake = BRAKE_POWER;
+	}
+
+	//Cambiar valores del coche
+	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)	//Aumentar gravedad
+	{
+		gravedad_v--;
+		btVector3 aumento(0, gravedad_v, 0);
+		
+		App->physics->world->setGravity((GRAVITY + aumento) * masa);
+		LOG("GRAVITY: %f", (GRAVITY + aumento) * masa);
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)	//Reducir gravedad
+	{
+		gravedad_v++;
+		btVector3 aumento(0, gravedad_v, 0);
+
+		App->physics->world->setGravity((GRAVITY + aumento) * masa);
+		LOG("GRAVITY: %f", (GRAVITY + aumento) * masa);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN) // Aumentar la masa -> Gravedad afecta mas
+	{
+		masa++;
+		btVector3 aumento(0, gravedad_v, 0);
+		App->physics->world->setGravity((GRAVITY + aumento) * masa);
+		LOG("Masa: %d", masa)
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN) // Reducir la masa -> Gravedad afecta menos
+	{
+		if (masa > 1)
+		{
+			masa--;
+		}
+		else
+		{
+			masa = 1;
+		}
+		btVector3 aumento(0, gravedad_v, 0);
+		App->physics->world->setGravity((GRAVITY + aumento) * masa);
+		LOG("Masa: %d", masa)
+		
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_G) == KEY_DOWN) //Toggle on/off gravity
+	{
+		gravedad = !gravedad;
+		if (gravedad)
+		{
+			btVector3 aumento(0, gravedad_v, 0);
+			App->physics->world->setGravity((GRAVITY + aumento) * masa);
+		}
+		else
+		{
+			btVector3 no_gravity(0, 0, 0);
+			App->physics->world->setGravity(no_gravity);
+		}
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_H) == KEY_DOWN)	//Toggle on/off wind
+	{
+		viento = !viento;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN) //Toggle on/off fuerza suelo
+	{
+		f_suelo = !f_suelo;
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)	//Reset posición

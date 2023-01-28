@@ -233,7 +233,11 @@ update_status ModulePlayer::Update(float dt)
 		f_suelo = !f_suelo;
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)	//Reset posición
+	//Calcular la cordenada y del chasis
+	auto position_y = vehicle->vehicle->getChassisWorldTransform().getOrigin().getY();
+	LOG("Pos_Y: %f", position_y)
+
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN || position_y < -20)	//Reset posición
 	{
 		mat4x4 transform;
 		transform.rotate(0, vec3(0, 0, 1));

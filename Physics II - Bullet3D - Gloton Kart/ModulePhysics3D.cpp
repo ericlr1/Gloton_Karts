@@ -66,16 +66,70 @@ bool ModulePhysics3D::Start()
 		world->addRigidBody(body);
 	}
 
-	// Big cube as ramp
-	{
-		Cube c(5, 1, 5);
+	// Torre para derrivar
+	{//abajo
+		Cube c(3, 3, 3);
 		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 15);
 		c.color = Red;
 		c.wire = false;
 		c.SetRotation(90, vec3(0, 0, 1));
 		AddBody(c);
 	}
+	{//en medio
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y + 3, App->camera->Position.z + 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c);
+	}
+	{//arriba
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y + 6, App->camera->Position.z + 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c);
+	}
 
+
+	// Arena
+	{ //muro de alante
+		Cube c(70, 1, 9);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 30);
+		c.color = Red;
+		c.wire = true;
+		c.SetRotation(90, vec3(1, 0, 0));
+		AddBody(c,10000);
+
+	}
+	{//muro detras
+		Cube c(70, 1, 9);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z - 30);
+		c.color = Red;
+		c.wire = true;
+		c.SetRotation(90, vec3(1, 0, 0));
+		AddBody(c, 10000);
+
+	}
+	{//muro izquierda
+		Cube c(70, 9, 1);
+		c.SetPos(App->camera->Position.x + 30, App->camera->Position.y, App->camera->Position.z);
+		c.color = Red;
+		c.wire = true;
+		c.SetRotation(90, vec3(0, 1, 0));
+		AddBody(c, 10000);
+
+	}
+	{//muro derecha
+		Cube c(70, 9, 1);
+		c.SetPos(App->camera->Position.x - 30, App->camera->Position.y, App->camera->Position.z);
+		c.color = Red;
+		c.wire = true;
+		c.SetRotation(90, vec3(0, 1, 0));
+		AddBody(c, 10000);
+
+	}
 
 	return true;
 }

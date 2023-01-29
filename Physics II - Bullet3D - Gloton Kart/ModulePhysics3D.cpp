@@ -66,14 +66,14 @@ bool ModulePhysics3D::Start()
 		world->addRigidBody(body);
 	}
 
-	// Torre para derrivar
+	// Torre para derrivar 1 
 	{//abajo
 		Cube c(3, 3, 3);
 		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 15);
 		c.color = Red;
 		c.wire = false;
 		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c);
+		AddBody(c , 200);
 	}
 	{//en medio
 		Cube c(3, 3, 3);
@@ -81,7 +81,7 @@ bool ModulePhysics3D::Start()
 		c.color = Red;
 		c.wire = false;
 		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c);
+		AddBody(c, 200);
 	}
 	{//arriba
 		Cube c(3, 3, 3);
@@ -89,9 +89,112 @@ bool ModulePhysics3D::Start()
 		c.color = Red;
 		c.wire = false;
 		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c);
+		AddBody(c, 200);
 	}
 
+	// Torre para derrivar 2
+	{//abajo
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z - 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//en medio
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y + 3, App->camera->Position.z - 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//arriba
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x, App->camera->Position.y + 6, App->camera->Position.z - 15);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+
+	// Torre para derrivar 3
+	{//abajo
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y, App->camera->Position.z );
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//en medio
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y + 3, App->camera->Position.z);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//arriba
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y + 6, App->camera->Position.z );
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+
+	// Torre para derrivar 4
+	{//abajo
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x +20, App->camera->Position.y, App->camera->Position.z + 12);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//en medio
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x + 20, App->camera->Position.y + 3, App->camera->Position.z + 12);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//arriba
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x + 20, App->camera->Position.y + 6, App->camera->Position.z + 12);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+
+	// Torre para derrivar 5
+	{//abajo
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y, App->camera->Position.z - 20);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//en medio
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y + 3, App->camera->Position.z - 20);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
+	{//arriba
+		Cube c(3, 3, 3);
+		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y + 6, App->camera->Position.z - 20);
+		c.color = Red;
+		c.wire = false;
+		c.SetRotation(90, vec3(0, 0, 1));
+		AddBody(c, 200);
+	}
 
 	// Arena
 	{ //muro de alante

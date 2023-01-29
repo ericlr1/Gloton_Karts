@@ -66,6 +66,11 @@ bool ModulePhysics3D::Start()
 		world->addRigidBody(body);
 	}
 
+	{
+		btTransform frameInB;
+		frameInB.getBasis().setEulerZYX(0, 0, M_PI / 2);
+		Cube* bodyC;
+	}
 	// Torre para derrivar
 	{//abajo
 		Cube c(3, 3, 3);

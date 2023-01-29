@@ -65,173 +65,163 @@ bool ModulePhysics3D::Start()
 		btRigidBody* body = new btRigidBody(rbInfo);
 		world->addRigidBody(body);
 	}
+	//OBSTACULOS
+	{
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o1 = new Cube;
+		o1->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o1->SetPos(App->camera->Position.x + 2, App->camera->Position.y + 5, App->camera->Position.z + 50);//POSICION CUBO
+		o1->color = Red;
+		o1->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o1, 1000);
+		primitives.PushBack(o1);
+		//OBSTACULO #2 -------------------------------------------------------------------------------------------------------
+		Cube* o2 = new Cube;
+		o2->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o2->SetPos(App->camera->Position.x - 15, App->camera->Position.y + 5, App->camera->Position.z + 40);//POSICION CUBO
+		o2->color = Red;
+		o2->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o2, 1000);
+		primitives.PushBack(o2);
+		//OBSTACULO #3 -------------------------------------------------------------------------------------------------------
+		Cube* o3 = new Cube;
+		o3->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o3->SetPos(App->camera->Position.x + 20, App->camera->Position.y + 5, App->camera->Position.z + 70);//POSICION CUBO
+		o3->color = Red;
+		o3->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o3, 1000);
+		primitives.PushBack(o3);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o4 = new Cube;
+		o4->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o4->SetPos(App->camera->Position.x + 20, App->camera->Position.y + 5, App->camera->Position.z + 30);//POSICION CUBO
+		o4->color = Red;
+		o4->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o4, 1000);
+		primitives.PushBack(o4);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o5 = new Cube;
+		o5->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o5->SetPos(App->camera->Position.x + 10, App->camera->Position.y + 5, App->camera->Position.z + 10);//POSICION CUBO
+		o5->color = Red;
+		o5->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o5, 1000);
+		primitives.PushBack(o5);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o6 = new Cube;
+		o6->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o6->SetPos(App->camera->Position.x - 20, App->camera->Position.y + 5, App->camera->Position.z + 50);//POSICION CUBO
+		o6->color = Red;
+		o6->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o6, 1000);
+		primitives.PushBack(o6);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o7 = new Cube;
+		o7->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o7->SetPos(App->camera->Position.x - 5, App->camera->Position.y + 5, App->camera->Position.z + 10);//POSICION CUBO
+		o7->color = Red;
+		o7->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o7, 1000);
+		primitives.PushBack(o7);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o8 = new Cube;
+		o8->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o8->SetPos(App->camera->Position.x + 10, App->camera->Position.y + 5, App->camera->Position.z + 30);//POSICION CUBO
+		o8->color = Red;
+		o8->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o8, 1000);
+		primitives.PushBack(o8);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o9 = new Cube;
+		o9->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o9->SetPos(App->camera->Position.x - 5, App->camera->Position.y + 5, App->camera->Position.z + 70);//POSICION CUBO
+		o9->color = Red;
+		o9->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o9, 1000);
+		primitives.PushBack(o9);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o10 = new Cube;
+		o10->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o10->SetPos(App->camera->Position.x - 20, App->camera->Position.y + 5, App->camera->Position.z + 80);//POSICION CUBO
+		o10->color = Red;
+		o10->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o10, 1000);
+		primitives.PushBack(o10);
+		//OBSTACULO #1 -------------------------------------------------------------------------------------------------------
+		Cube* o11 = new Cube;
+		o11->size = { 10,3,3 }; //TAMAÑO CUBO YXZ
+		o11->SetPos(App->camera->Position.x - 20, App->camera->Position.y + 5, App->camera->Position.z + 20);//POSICION CUBO
+		o11->color = Red;
+		o11->SetRotation(90, vec3(0, 0, 1));
+		pbodyC = App->physics->AddBody(*o11, 1000);
+		primitives.PushBack(o11);
 
-	// Torre para derrivar 1 
-	{//abajo
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c , 200);
-	}
-	{//en medio
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y + 3, App->camera->Position.z + 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//arriba
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y + 6, App->camera->Position.z + 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-
-	// Torre para derrivar 2
-	{//abajo
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z - 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//en medio
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y + 3, App->camera->Position.z - 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//arriba
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y + 6, App->camera->Position.z - 15);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-
-	// Torre para derrivar 3
-	{//abajo
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y, App->camera->Position.z );
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//en medio
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y + 3, App->camera->Position.z);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//arriba
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x - 15, App->camera->Position.y + 6, App->camera->Position.z );
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-
-	// Torre para derrivar 4
-	{//abajo
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x +20, App->camera->Position.y, App->camera->Position.z + 12);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//en medio
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x + 20, App->camera->Position.y + 3, App->camera->Position.z + 12);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
-	}
-	{//arriba
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x + 20, App->camera->Position.y + 6, App->camera->Position.z + 12);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
 	}
 
-	// Torre para derrivar 5
+	// Torre para derrivar
 	{//abajo
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y, App->camera->Position.z - 20);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
+		Cube* c = new Cube;
+		c->size = { 3,3,3 }; //TAMAÑO CUBO
+		c->SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 115);//POSICION CUBO
+		c->color = Blue;
+		c->SetRotation(90, vec3(0, 0, 1));
+		pbodyA = App->physics->AddBody(*c, 1000);
+		primitives.PushBack(c);
 	}
 	{//en medio
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y + 3, App->camera->Position.z - 20);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
+		Cube* c2 = new Cube;
+		c2->size = { 3,3,3 }; //TAMAÑO CUBO
+		c2->SetPos(App->camera->Position.x, App->camera->Position.y + 3, App->camera->Position.z + 115);//POSICION CUBO
+		c2->color = Blue;
+		c2->SetRotation(90, vec3(0, 0, 1));
+		pbodyA = App->physics->AddBody(*c2, 1000);
+		primitives.PushBack(c2);
 	}
 	{//arriba
-		Cube c(3, 3, 3);
-		c.SetPos(App->camera->Position.x + 25, App->camera->Position.y + 6, App->camera->Position.z - 20);
-		c.color = Red;
-		c.wire = false;
-		c.SetRotation(90, vec3(0, 0, 1));
-		AddBody(c, 200);
+		Cube* c3 = new Cube;
+		c3->size = { 3,3,3 }; //TAMAÑO CUBO
+		c3->SetPos(App->camera->Position.x, App->camera->Position.y + 6, App->camera->Position.z + 115);//POSICION CUBO
+		c3->color = Blue;
+		c3->SetRotation(90, vec3(0, 0, 1));
+		pbodyA = App->physics->AddBody(*c3, 1000);
+		primitives.PushBack(c3);
 	}
+
 
 	// Arena
 	{ //muro de alante
-		Cube c(70, 1, 9);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z + 30);
-		c.color = Red;
-		c.wire = true;
-		c.SetRotation(90, vec3(1, 0, 0));
-		AddBody(c,10000);
-
+		Cube* wall_1 = new Cube;
+		wall_1->size = { 70, 9, 1 }; //TAMAÑO CUBO
+		wall_1->SetPos(App->camera->Position.x, App->camera->Position.y + 4, App->camera->Position.z + 130);//POSICION CUBO
+		wall_1->color = Green;
+		pbodyB = App->physics->AddBody(*wall_1, 1000);
+		primitives.PushBack(wall_1);
 	}
 	{//muro detras
-		Cube c(70, 1, 9);
-		c.SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z - 30);
-		c.color = Red;
-		c.wire = true;
-		c.SetRotation(90, vec3(1, 0, 0));
-		AddBody(c, 10000);
-
+		Cube* wall_2 = new Cube;
+		wall_2->size = { 70, 9, 1 }; //TAMAÑO CUBO
+		wall_2->SetPos(App->camera->Position.x, App->camera->Position.y + 4, App->camera->Position.z - 30);//POSICION CUBO
+		wall_2->color = Green;
+		pbodyB = App->physics->AddBody(*wall_2, 1000);
+		primitives.PushBack(wall_2);
 	}
 	{//muro izquierda
-		Cube c(70, 9, 1);
-		c.SetPos(App->camera->Position.x + 30, App->camera->Position.y, App->camera->Position.z);
-		c.color = Red;
-		c.wire = true;
-		c.SetRotation(90, vec3(0, 1, 0));
-		AddBody(c, 10000);
-
+		Cube* wall_3 = new Cube;
+		wall_3->size = { 9, 1, 170 }; //TAMAÑO CUBO
+		wall_3->SetPos(App->camera->Position.x + 36, App->camera->Position.y + 4, App->camera->Position.z + 50);//POSICION CUBO
+		wall_3->color = Green;
+		wall_3->SetRotation(90, vec3(0, 0, 1));
+		pbodyB = App->physics->AddBody(*wall_3, 1000);
+		primitives.PushBack(wall_3);
 	}
 	{//muro derecha
-		Cube c(70, 9, 1);
-		c.SetPos(App->camera->Position.x - 30, App->camera->Position.y, App->camera->Position.z);
-		c.color = Red;
-		c.wire = true;
-		c.SetRotation(90, vec3(0, 1, 0));
-		AddBody(c, 10000);
-
+		Cube* wall_4 = new Cube;
+		wall_4->size = { 9, 1, 170 }; //TAMAÑO CUBO
+		wall_4->SetPos(App->camera->Position.x - 36, App->camera->Position.y + 4, App->camera->Position.z + 50);//POSICION CUBO
+		wall_4->color = Green;
+		wall_4->SetRotation(90, vec3(0, 0, 1));
+		pbodyB = App->physics->AddBody(*wall_4, 1000);
+		primitives.PushBack(wall_4);
 	}
 
 	return true;
@@ -302,6 +292,11 @@ update_status ModulePhysics3D::Update(float dt)
 			float force = 30.0f;
 			AddBody(s)->Push(-(App->camera->Z.x * force), -(App->camera->Z.y * force), -(App->camera->Z.z * force));
 		}
+	}
+
+	for (int i = 0; i < primitives.Count(); i++)
+	{
+		primitives[i]->Render();
 	}
 
 	return UPDATE_CONTINUE;

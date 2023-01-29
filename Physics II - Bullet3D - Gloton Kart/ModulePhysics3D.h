@@ -53,6 +53,13 @@ public:
 	p2List<btDefaultMotionState*> motions;
 	p2List<btTypedConstraint*> constraints;
 	p2List<PhysVehicle3D*> vehicles;
+
+	p2DynArray<Primitive*> primitives;
+
+	PhysBody3D* pbodyA;
+	PhysBody3D* pbodyB;
+	PhysBody3D* pbodyC;
+	PhysBody3D* pbodyD;
 };
 
 class DebugDrawer : public btIDebugDraw

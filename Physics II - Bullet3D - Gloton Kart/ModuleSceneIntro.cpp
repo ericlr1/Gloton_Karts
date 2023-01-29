@@ -22,10 +22,9 @@ bool ModuleSceneIntro::Start()
 	App->camera->LookAt(vec3(0, 0, 0));
 
 	Cube* bodyC = new Cube;
-	bodyC->size = { 12.3,5,0.5 }; //TAMAÑO CUBO
-	bodyC->color = Red;
-	bodyC->SetPos(0,2,10); //POSICION CUBO
-	pbodyC = App->physics->AddBody(*bodyC, 1000);
+	bodyC->size = { 500,2,500 }; //TAMAÑO CUBO
+	bodyC->color = White;
+	bodyC->SetPos(0,-0.9555,0); //POSICION CUBO
 	primitives.PushBack(bodyC);
 
 	return ret;

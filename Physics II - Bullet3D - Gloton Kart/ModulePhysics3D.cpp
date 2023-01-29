@@ -155,7 +155,6 @@ bool ModulePhysics3D::Start()
 		o11->SetRotation(90, vec3(0, 0, 1));
 		pbodyC = App->physics->AddBody(*o11, 1000);
 		primitives.PushBack(o11);
-
 	}
 
 	// Torre para derrivar

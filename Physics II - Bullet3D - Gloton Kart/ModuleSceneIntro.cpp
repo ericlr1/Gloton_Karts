@@ -21,6 +21,13 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 
+	Cube* bodyC = new Cube;
+	bodyC->size = { 12.3,5,0.5 }; //TAMAÑO CUBO
+	bodyC->color = Red;
+	bodyC->SetPos(0,2,10); //POSICION CUBO
+	pbodyC = App->physics->AddBody(*bodyC, 1000);
+	primitives.PushBack(bodyC);
+
 	return ret;
 }
 
@@ -38,6 +45,11 @@ update_status ModuleSceneIntro::Update(float dt)
 	Plane p(0, 1, 0, 0);
 	p.axis = true;
 	p.Render();
+
+	for (int i = 0; i < primitives.Count(); i++)
+	{
+		primitives[i]->Render();
+	}
 
 
 	return UPDATE_CONTINUE;

@@ -211,9 +211,12 @@ update_status ModulePlayer::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
 	{
+		acceleration = -MAX_ACCELERATION;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_E) == KEY_REPEAT)
+	{
 		brake = BRAKE_POWER;
 	}
-
 	//Cambiar valores del coche
 	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN)	//Aumentar gravedad
 	{

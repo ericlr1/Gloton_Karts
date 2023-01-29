@@ -21,8 +21,48 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(2, 1, 4);
-	car.chassis_offset.Set(0, 1.5, 0);
+	car.chassis_size.Set(1.3, 0.15, 2.6); //TAMAÑO
+	car.chassis_offset.Set(0, 0.3, 0); //POSICION
+	
+	car.chassis1_size.Set(0.6, 0.05, 0.4); //TAMAÑO 1
+	car.chassis1_offset.Set(0, 0.3, 1.3); //POSICION 1
+
+	car.chassis2_size.Set(1.8, 0.3, 0.3); //TAMAÑO 2
+	car.chassis2_offset.Set(0, 0.3, 1.5); //POSICION 2
+
+	car.chassis3_size.Set(0.8, 0.4, 0.45); //TAMAÑO 3
+	car.chassis3_offset.Set(0, 0.55, -0.9); //POSICION 3
+
+	car.chassis4_size.Set(0.2, 0.85, 0.2); //TAMAÑO 4
+	car.chassis4_offset.Set(-0.5, 0.65, -1.3); //POSICION 4
+
+	car.chassis5_size.Set(0.2, 0.85, 0.2); //TAMAÑO 5
+	car.chassis5_offset.Set(0.5, 0.65, -1.3); //POSICION 5
+
+	car.chassis6_size.Set(0.4, 0.4, 0.7); //TAMAÑO 6
+	car.chassis6_offset.Set(0.7, 0.3, 0); //POSICION 6
+
+	car.chassis7_size.Set(0.4, 0.4, 0.7); //TAMAÑO 7
+	car.chassis7_offset.Set(-0.7, 0.3, 0); //POSICION 7
+
+	car.chassis8_size.Set(0.95, 0.06, 0.75); //TAMAÑO 8
+	car.chassis8_offset.Set(0, 0.8, 0.6); //POSICION 8
+
+	car.chassis9_size.Set(0.7, 0.1, 0.75); //TAMAÑO 9
+	car.chassis9_offset.Set(0, 0.8, -0.6); //POSICION 9
+
+	car.chassis10_size.Set(0.75, 0.1, 0.7); //TAMAÑO 10
+	car.chassis10_offset.Set(0, 0.45, 0); //POSICION 10
+
+	car.chassis11_size.Set(0.6, 0.25, 0.35); //TAMAÑO 11
+	car.chassis11_offset.Set(0, 0.9, -0.9); //POSICION 11
+
+	car.chassis12_size.Set(0.5, 0.3, 0.3); //TAMAÑO 2
+	car.chassis12_offset.Set(-1, 0.3, 1.4); //POSICION 2
+
+	car.chassis13_size.Set(0.5, 0.3, 0.3); //TAMAÑO 13
+	car.chassis13_offset.Set(1, 0.3, 1.4); //POSICION 13
+
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;
@@ -33,13 +73,13 @@ bool ModulePlayer::Start()
 
 	// Wheel properties ---------------------------------------
 	float connection_height = 1.2f;
-	float wheel_radius = 0.6f;
-	float wheel_width = 0.5f;
+	float wheel_radius = 0.16f;
+	float wheel_width = 0.2f;
 	float suspensionRestLength = 1.2f;
 
 	// Don't change anything below this line ------------------
 
-	float half_width = car.chassis_size.x*0.5f;
+	float half_width = car.chassis_size.x*0.65f;
 	float half_length = car.chassis_size.z*0.5f;
 	
 	vec3 direction(0,-1,0);
@@ -114,6 +154,11 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update(float dt)
 {
 	turn = acceleration = brake = 0.0f;
+	
+	/*if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+	{
+		App->camera->Position.y += 1;
+	}*/
 
 	if(App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{

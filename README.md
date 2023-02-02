@@ -20,3 +20,5 @@ Press F2 + L to reduce the mass of the vehicle
 Press F3 + G to toggle on/off gravity
 Press F3 + F to toggle on/off drag force
 Press F3 + H to toggle on/off wind force
+
+Press R to restart the car on the inital position

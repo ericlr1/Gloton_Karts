@@ -22,3 +22,17 @@ Press F3 + F to toggle on/off drag force
 Press F3 + H to toggle on/off wind force
 
 Press R to restart the car on the inital position
+
+Miembros:
+
+- David Ruiz
+- Marcel Sunyer
+- Eric Luqe
+- Guillem Aixut
+
+OBJETIBO:
+
+El objetivo del juego es derribar la torre azul sin tocar los pilares rojos
+
+Github Link:
+https://github.com/ericlr1/Gloton_Karts

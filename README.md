@@ -27,10 +27,10 @@ Miembros:
 
 - David Ruiz
 - Marcel Sunyer
-- Eric Luqe
+- Eric Luque
 - Guillem Aixut
 
-OBJETIBO:
+OBJETIVO:
 
 El objetivo del juego es derribar la torre azul sin tocar los pilares rojos
 
